@@ -12,8 +12,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Routes init
 route(app);
 
-app.use(express.urlencoded());
-app.use(express.json());
+    app.use(express.urlencoded());
+    app.use(express.json());
 
 // HTTP logger
       app.use
