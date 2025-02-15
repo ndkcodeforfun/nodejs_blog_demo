@@ -2,9 +2,10 @@
   "name": "blog",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
-    "start": "nodemon --inspect index.js",
+    "start": "nodemon --inspect src/index.js",
+    "watch": "sass --watch src/resources/scss:src/public/css --no-source-map",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -21,10 +22,24 @@
     "url": "https://github.com/ndkcodeforfun/nodejs_blog_demo/issues"
   },
   "homepage": "https://github.com/ndkcodeforfun/nodejs_blog_demo#readme",
+  "lint-staged": {
+    "src/**/*.{js,json,scss}": "prettier --single-quote --trailing-comma all --tab-width 4 --write"
+  },
+  "husky": {
+  "hooks": {
+    "pre-commit": "lint-staged"
+  }
+},
   "dependencies": {
-    "express": "^4.21.2"
+    "express": "^4.21.2",
+    "express-handlebars": "^8.0.1"
   },
   "devDependencies": {
-    "nodemon": "^3.1.9"
+    "husky": "^9.1.7",
+    "lint-staged": "^15.4.3",
+    "morgan": "^1.10.0",
+    "nodemon": "^3.1.9",
+    "prettier": "^3.5.1",
+    "sass": "^1.84.0"
   }
 }
